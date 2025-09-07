@@ -1,0 +1,30 @@
+{
+  "accountAssociation": {
+    "header": "",
+    "payload": "",
+    "signature": ""
+  },
+  "frame": {
+    "version": "1",
+    "name": "RightSpark",
+    "subtitle": "Built with Zara",
+    "description": "RightSpark is a Base Mini App built with Zara.",
+    "iconUrl": "https://0co.to/images/zara-2.png",
+    "homeUrl": "https://e4bb9e1f121a473c861931f8b54bd8b1-h995.vercel.app",
+    "splashImageUrl": "https://e4bb9e1f121a473c861931f8b54bd8b1-h995.vercel.app/splash.png",
+    "splashBackgroundColor": "#000000",
+    "heroImageUrl": "https://e4bb9e1f121a473c861931f8b54bd8b1-h995.vercel.app/image.png",
+    "tagline": "RightSpark",
+    "screenshotUrls": [
+      "https://e4bb9e1f121a473c861931f8b54bd8b1-h995.vercel.app/screenshot.png",
+      "https://e4bb9e1f121a473c861931f8b54bd8b1-h995.vercel.app/screenshot.png"
+    ],
+    "primaryCategory": "social",
+    "tags": [
+      "base",
+      "miniapp",
+      "onchainkit"
+    ],
+    "webhookUrl": "https://e4bb9e1f121a473c861931f8b54bd8b1-h995.vercel.app/api/webhook"
+  }
+}
