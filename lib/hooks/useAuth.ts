@@ -1,7 +1,7 @@
 'use client';
 
 import { usePrivy, useWallets } from '@privy-io/react-auth';
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useCallback } from 'react';
 import { User, UserSession } from '@/lib/types';
 import toast from 'react-hot-toast';
 
@@ -24,7 +24,7 @@ export function useAuth(): UserSession & {
   const [isLoading, setIsLoading] = useState(true);
 
   // Get or create user in our database
-  const refreshUser = async () => {
+  const refreshUser = useCallback(async () => {
     if (!privyUser?.farcaster?.fid) {
       setUser(null);
       setIsLoading(false);
@@ -65,7 +65,7 @@ export function useAuth(): UserSession & {
     } finally {
       setIsLoading(false);
     }
-  };
+  }, [privyUser?.farcaster?.fid, wallets]);
 
   // Refresh user data when authentication state changes
   useEffect(() => {
@@ -77,7 +77,7 @@ export function useAuth(): UserSession & {
         setIsLoading(false);
       }
     }
-  }, [ready, authenticated, privyUser?.farcaster?.fid, wallets]);
+  }, [ready, authenticated, privyUser?.farcaster?.fid, wallets, refreshUser]);
 
   const login = () => {
     privyLogin();

@@ -6,6 +6,7 @@ import { Providers } from './providers';
 const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
+  metadataBase: new URL(process.env.NEXT_PUBLIC_APP_URL || 'http://localhost:3000'),
   title: 'RightSpark - Demystify your rights, ignite your actions',
   description: 'A Farcaster-native tool that helps users instantly understand their legal rights and provides actionable guidance.',
   openGraph: {
