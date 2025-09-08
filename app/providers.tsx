@@ -15,7 +15,7 @@ export function Providers({ children }: { children: ReactNode }) {
   return (
     <QueryClientProvider client={queryClient}>
       <PrivyProvider
-        appId={process.env.NEXT_PUBLIC_PRIVY_APP_ID!}
+        appId={process.env.NEXT_PUBLIC_PRIVY_APP_ID || 'clbmr4c6k00021odvxz1sopa7'}
         config={{
           loginMethods: ['wallet', 'farcaster'],
           appearance: {
@@ -25,9 +25,6 @@ export function Providers({ children }: { children: ReactNode }) {
           },
           embeddedWallets: {
             createOnLogin: 'users-without-wallets',
-          },
-          farcaster: {
-            enabled: true,
           },
         }}
       >

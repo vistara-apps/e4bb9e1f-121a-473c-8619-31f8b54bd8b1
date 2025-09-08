@@ -155,7 +155,7 @@ export function UserProfile() {
               className="justify-start"
               onClick={() => {
                 // TODO: Implement history view
-                toast.info('Search history coming soon!');
+                toast('Search history coming soon!');
               }}
             >
               <History className="w-4 h-4 mr-2" />

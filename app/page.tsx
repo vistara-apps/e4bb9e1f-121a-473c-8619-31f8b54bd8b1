@@ -1,6 +1,9 @@
 'use client';
 
 import { useState, useEffect } from 'react';
+
+// Force dynamic rendering to avoid SSR issues with Privy
+export const dynamic = 'force-dynamic';
 import { useMiniKit } from '@coinbase/onchainkit/minikit';
 import { Frame } from '@/components/ui/Frame';
 import { SearchInterface } from '@/components/SearchInterface';
@@ -83,7 +86,7 @@ export default function HomePage() {
 
   const handleLearnMore = () => {
     // In a real app, this would open external resources
-    toast.info('This would open relevant official resources and documentation in a new tab.');
+    toast('This would open relevant official resources and documentation in a new tab.');
   };
 
   const handleLogin = () => {

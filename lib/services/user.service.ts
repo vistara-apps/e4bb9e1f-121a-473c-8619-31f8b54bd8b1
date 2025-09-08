@@ -107,10 +107,18 @@ export class UserService {
    */
   static async updateUserCredits(userId: string, creditsToAdd: number): Promise<ApiResponse<User>> {
     try {
+      // First get the current user
+      const userResult = await this.getUserById(userId);
+      if (!userResult.success || !userResult.data) {
+        return { success: false, error: 'User not found' };
+      }
+
+      const newCredits = userResult.data.paidCredits + creditsToAdd;
+
       const { data, error } = await supabaseAdmin
         .from(TABLES.USERS)
         .update({ 
-          paid_credits: supabaseAdmin.raw(`paid_credits + ${creditsToAdd}`),
+          paid_credits: newCredits,
           updated_at: new Date().toISOString()
         })
         .eq('id', userId)
@@ -147,10 +155,12 @@ export class UserService {
         return { success: false, error: 'Insufficient credits' };
       }
 
+      const newCredits = userResult.data.paidCredits - creditsToDeduct;
+
       const { data, error } = await supabaseAdmin
         .from(TABLES.USERS)
         .update({ 
-          paid_credits: supabaseAdmin.raw(`paid_credits - ${creditsToDeduct}`),
+          paid_credits: newCredits,
           updated_at: new Date().toISOString()
         })
         .eq('id', userId)

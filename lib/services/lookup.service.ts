@@ -62,7 +62,11 @@ export class LookupService {
 
       if (countError) {
         console.error('Error getting lookup count:', countError);
-        return { success: false, error: 'Failed to get lookup history' };
+        return { 
+          success: false, 
+          error: 'Failed to get lookup history',
+          pagination: { page, limit, total: 0, totalPages: 0 }
+        };
       }
 
       // Get paginated data
@@ -75,7 +79,11 @@ export class LookupService {
 
       if (error) {
         console.error('Error getting lookup history:', error);
-        return { success: false, error: 'Failed to get lookup history' };
+        return { 
+          success: false, 
+          error: 'Failed to get lookup history',
+          pagination: { page, limit, total: 0, totalPages: 0 }
+        };
       }
 
       const lookupHistory = data.map(this.mapDatabaseLookupToLookupHistory);
@@ -93,7 +101,11 @@ export class LookupService {
       };
     } catch (error) {
       console.error('Error in getUserLookupHistory:', error);
-      return { success: false, error: 'Internal server error' };
+      return { 
+        success: false, 
+        error: 'Internal server error',
+        pagination: { page, limit, total: 0, totalPages: 0 }
+      };
     }
   }
 
