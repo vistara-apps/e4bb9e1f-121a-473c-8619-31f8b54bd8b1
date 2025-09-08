@@ -11,6 +11,14 @@ const config: Config = {
       colors: {
         background: "var(--background)",
         foreground: "var(--foreground)",
+        // Custom app colors
+        bg: "#ffffff",
+        surface: "#f8fafc",
+        text: {
+          primary: "#1e293b",
+          secondary: "#64748b",
+          muted: "#94a3b8",
+        },
         // Design system color tokens
         primary: {
           DEFAULT: "var(--primary)",
